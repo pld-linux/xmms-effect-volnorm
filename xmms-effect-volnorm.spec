@@ -8,7 +8,7 @@ Group:		X11/Applications/Multimedia
 Source0:	http://download.sourceforge.net/volnorm/volnorm-%{version}.tar.gz
 # Source0-md5:	8f4d19b8e45d5f51c303303858f9905a
 Patch0:		%{name}-dont_check_gtk+extra.patch
-URL:		http://volnorm.sourceforge.net
+URL:		http://volnorm.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib-devel >= 1.2.6
@@ -47,7 +47,7 @@ Pozwala na odtwarzanie kazdego z plików z jednakow± g³o¶no¶ci±.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-       DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT{%{_libdir}/libnormvol.la,%{_bindir}/testload}
 
