@@ -1,0 +1,11 @@
+--- volnorm-0.4.1/configure.in.old	2004-03-10 10:25:13.000000000 +0100
++++ volnorm-0.4.1/configure.in	2004-03-10 10:25:41.000000000 +0100
+@@ -61,7 +61,7 @@
+ 
+ dnl Checks for header files.
+ 
+-AC_CHECK_HEADERS(gtkextra/gtkplot.h, AC_DEFINE(USE_MONITOR))
++#AC_CHECK_HEADERS(gtkextra/gtkplot.h, AC_DEFINE(USE_MONITOR))
+ 
+ dnl Checks for library functions.
+ AC_HEADER_STDC
