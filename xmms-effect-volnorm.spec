@@ -9,15 +9,16 @@ Source0:	http://download.sourceforge.net/volnorm/volnorm-%{version}.tar.gz
 # Source0-md5:	8f4d19b8e45d5f51c303303858f9905a
 Patch0:		%{name}-dont_check_gtk+extra.patch
 URL:		http://volnorm.sourceforge.net
-BuildRequires:	libtool
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	xmms-devel
-BuildRequires:	xmms
 BuildRequires:	glib-devel >= 1.2.6
 BuildRequires:	gtk+-devel >= 1.2.6
+BuildRequires:	libtool
+BuildRequires:	xmms-devel
 Requires:	xmms
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_libdir		%{xmms_effect_plugindir}
 
 %description
 This XMMS plugin changes the volume of played songs to a uniform level
@@ -38,7 +39,8 @@ Pozwala na odtwarzanie kazdego z plików z jednakow± g³o¶no¶ci±.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure 
+%configure \
+	XMMS_PATH="/usr/bin/xmms"
 %{__make}
 
 %install
@@ -47,9 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
        DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{xmms_effect_plugindir}
-install $RPM_BUILD_ROOT%{_libdir}/libnormvol.la $RPM_BUILD_ROOT%{xmms_effect_plugindir}/
-install $RPM_BUILD_ROOT%{_libdir}/libnormvol.so $RPM_BUILD_ROOT%{xmms_effect_plugindir}/
+rm -f $RPM_BUILD_ROOT{%{_libdir}/libnormvol.la,%{_bindir}/testload}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -57,5 +57,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog README TODO
-%attr(755,root,root) %{xmms_effect_plugindir}/*
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{xmms_effect_plugindir}/*.so
