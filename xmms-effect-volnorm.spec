@@ -2,7 +2,7 @@ Summary:	XMMS - Plugin for Normalizing Volume
 Summary(pl):	Wtyczka do XMMS-a normalizuj±ca poziom d¼wiêku
 Name:		xmms-effect-volnorm
 Version:	0.4.1
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://download.sourceforge.net/volnorm/volnorm-%{version}.tar.gz
