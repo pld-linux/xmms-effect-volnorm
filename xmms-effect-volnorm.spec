@@ -28,7 +28,7 @@ Pozwala na odtwarzanie kazdego z plików z jednakow± g³o¶no¶ci±.
 %setup -q -n volnorm-%{version}
 
 %build
-./configure --prefix=/usr
+./configure --prefix=%{_prefix}
 %{__make}
 
 %install
