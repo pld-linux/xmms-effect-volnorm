@@ -1,5 +1,5 @@
 Summary:	XMMS - Plugin for Normalizing Volume
-Summary(pl):	Plugin do XMMS normalizuj±cy poziom dzwiêku
+Summary(pl):	Wtyczka do XMMS-a normalizuj±ca poziom d¼wiêku
 Name:		xmms-effect-volnorm
 Version:	0.4.1
 Release:	1
@@ -21,7 +21,7 @@ such that the base volume of all songs will be the same so that you
 will not need to play with the volume knob whenever a song changes.
 
 %description -l pl
-Plugin do XMMS normalizuj±cy poziom g³o¶no¶ci odgrywanych utworów.
+Wtyczka do XMMS-a normalizuj±ca poziom g³o¶no¶ci odgrywanych utworów.
 Pozwala na odtwarzanie kazdego z plików z jednakow± g³o¶no¶ci±.
 
 %prep
