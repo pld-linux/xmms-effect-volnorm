@@ -28,7 +28,7 @@ Pozwala na odtwarzanie kazdego z plików z jednakow± g³o¶no¶ci±.
 %setup -q -n volnorm-%{version}
 
 %build
-./configure
+./configure --prefix=/usr
 %{__make}
 
 %install
@@ -38,8 +38,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_bindir}
-mv $RPM_BUILD_ROOT%{_prefix}/local/bin/testload $RPM_BUILD_ROOT%{_bindir}
-rmdir $RPM_BUILD_ROOT%{_prefix}/local/bin $RPM_BUILD_ROOT%{_prefix}/local
 
 %clean
 rm -rf $RPM_BUILD_ROOT
