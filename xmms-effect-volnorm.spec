@@ -1,5 +1,5 @@
 Summary:	XMMS - Plugin for Normalizing Volume
-Summary(pl.UTF-8):   Wtyczka do XMMS-a normalizująca poziom dźwięku
+Summary(pl.UTF-8):	Wtyczka do XMMS-a normalizująca poziom dźwięku
 Name:		xmms-effect-volnorm
 Version:	0.4.1
 Release:	1
