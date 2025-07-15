@@ -31,7 +31,7 @@ Pozwala na odtwarzanie kazdego z plików z jednakową głośnością.
 
 %prep
 %setup -q -n volnorm-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__libtoolize}
