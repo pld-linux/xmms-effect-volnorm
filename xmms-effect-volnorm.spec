@@ -2,12 +2,13 @@ Summary:	XMMS - Plugin for Normalizing Volume
 Summary(pl.UTF-8):	Wtyczka do XMMS-a normalizująca poziom dźwięku
 Name:		xmms-effect-volnorm
 Version:	0.4.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://download.sourceforge.net/volnorm/volnorm-%{version}.tar.gz
 # Source0-md5:	8f4d19b8e45d5f51c303303858f9905a
 Patch0:		%{name}-dont_check_gtk+extra.patch
+Patch1:		%{name}-rpm-flags.patch
 URL:		http://volnorm.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -32,6 +33,7 @@ Pozwala na odtwarzanie kazdego z plików z jednakową głośnością.
 %prep
 %setup -q -n volnorm-%{version}
 %patch -P0 -p1
+%patch -P1 -p1
 
 %build
 %{__libtoolize}
@@ -40,6 +42,9 @@ Pozwala na odtwarzanie kazdego z plików z jednakową głośnością.
 %{__autoheader}
 %{__automake}
 %configure \
+	CFLAGS="%{rpmcflags}" \
+	CPPFLAGS="%{rpmcppflags}" \
+	LDFLAGS="%{rpmldflags}" \
 	XMMS_PATH="/usr/bin/xmms"
 %{__make}
 

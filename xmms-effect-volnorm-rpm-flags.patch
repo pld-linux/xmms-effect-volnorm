@@ -1,0 +1,36 @@
+Preserve RPM compiler flags in automake files.
+
+The upstream Makefile.am overwrites CFLAGS with a hardcoded COMMON_CFLAGS
+block, which drops debuginfo and hardening flags from the actual build.
+
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -5,12 +5,12 @@
+ libnormvol_la_LDFLAGS = -module -avoid-version
+ libnormvol_la_LIBS = @GTK_LIBS@ @PTHREAD_LIBS@ @INTLLIBS@
+ 
+-COMMON_CFLAGS = -O2 -Wall -W \
++AM_CFLAGS = -Wall -W \
+ 	-I$(top_builddir) -I$(top_srcdir) \
+ 	-D_REENTRANT @GTK_CFLAGS@
+ COMMON_SRC = normvol.c normvol.h smooth.c smooth.h cfg.c cfg.h \
+ 	about.c about.h config.h monitor.c monitor.h\
+ 	support.c support.h interface.c interface.h callbacks.c callbacks.h
+ 
+-CFLAGS = $(COMMON_CFLAGS)
++CFLAGS +=
+ libnormvol_la_SOURCES =  $(COMMON_SRC)
+--- a/tests/Makefile.am
++++ b/tests/Makefile.am
+@@ -5,9 +5,9 @@
+ LIBS = @GTK_LIBS@
+ LDADD = ../src/libnormvol.la
+ 
+-COMMON_CFLAGS = -O2 -Wall -W -I$(top_builddir) -I$(top_srcdir) -D_REENTRANT @GTK_CFLAGS@
++AM_CFLAGS = -Wall -W -I$(top_builddir) -I$(top_srcdir) -D_REENTRANT @GTK_CFLAGS@
+ 
+ COMMON_SRC = testload.c xmms_dummy.c
+ 
+-CFLAGS = $(COMMON_CFLAGS)
++CFLAGS +=
+ testload_SOURCES =  $(COMMON_SRC)
